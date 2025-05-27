@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeWithX - Learn Coding</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">&lt;/&gt;CodeWithX</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cources.html">Courses</a></li>
+        <li class="dropdown">
+          <a href="tutorial.html" class="dropdown-toggle">Tutorials <span class="dropdown-icon">&#9660;</span></a>
+          <div class="dropdown-menu">
+            <div class="tutorial-grid">
+              <a href="c-intro.html" class="tutorial-item">C Tutorial</a>
+              <a href="#" class="tutorial-item">C++ Tutorial</a>
+              <a href="#" class="tutorial-item">Java Tutorial</a>
+              <a href="#" class="tutorial-item">Python Tutorial</a>
+              <a href="#" class="tutorial-item">JavaScript Tutorial</a>
+              <a href="#" class="tutorial-item">HTML Tutorial</a>
+              <a href="#" class="tutorial-item">CSS Tutorial</a>
+              <a href="#" class="tutorial-item">PHP Tutorial</a>
+              <a href="#" class="tutorial-item">React JS Tutorial</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="login">Login</button>
+        <button class="signup">Signup</button>
+      </div>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Welcome to <span>CodeWithX</span></h1>
+    <h2>Learn Modern Coding</h2>
+    <p>Confused about which course to take? We've got you covered! Browse courses and discover the best option for you. It's free!</p>
+    <div class="hero-actions">
+      <button class="primary">Explore Courses</button>
+      <button class="secondary" onclick="window.location.href='submit-article.html'">Read Articles</button>
+    </div>
+    <div class="hero-stats">
+      <div><strong>100+</strong><br>Courses</div>
+      <div><strong>500K+</strong><br>Students</div>
+      <div><strong>5.0</strong><br>Rating</div>
+    </div>
+  </section>
+  <section class="features">
+    <h2>Code Smarter with Real-World Practice</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, JavaScript and modern frameworks to build responsive websites and web applications.</p>
+      </div>
+      <div class="card">
+        <h3>Data Science & AI</h3>
+        <p>Master Python, data analysis, machine learning and artificial intelligence with hands-on projects.</p>
+      </div>
+      <div class="card">
+        <h3>Data Structures & Algorithms</h3>
+        <p>Learn DSA and crack interviews at top companies like Google and Microsoft.</p>
+      </div>
+    </div>
+  </section>
+  <section class="stats">
+    <h2>Empowering Aspiring Developers</h2>
+    <div class="stats-cards">
+      <div class="stat">
+        <strong>6 months</strong>
+        <span>on average to land first job</span>
+      </div>
+      <div class="stat">
+        <strong>7,000,000+</strong>
+        <span>students trained</span>
+      </div>
+      <div class="stat">
+        <strong>1 Billion+</strong>
+        <span>views and counting</span>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"I don't have words to thank this man. If you're a mere beginner, you can trust this guy and can put your time into his content. I can assure you that it'll be worth it."</p>
+        <span>- Aryan Sondharva, Web Developer</span>
+      </div>
+      <div class="testimonial">
+        <p>"For everyone who wants to level up their coding and dev skills, this channel is for you! Both basic and advanced stacks are covered."</p>
+        <span>- Naitik Sondharva, Web Developer</span>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">&lt;/&gt;CodeWithX</a>
+        <p class="footer-description">Empowering the next generation of developers with comprehensive coding resources.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="cources.html">Courses</a>
+        <a href="tutorial.html">Tutorials</a>
+        <a href="notes.html">Notes</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">GitHub</a>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+      </div>
+      <div class="footer-copy">© <span id="current-year"></span> CodeWithX. All rights reserved. Made with ❤️ in India</div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // JavaScript for dropdown functionality
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const dropdownIcon = document.querySelector('.dropdown-icon');
+
+    if (dropdown) {
+      dropdown.addEventListener('click', function(event) {
+        console.log('Tutorials dropdown clicked.'); // Log click event
+        // Prevent the default link behavior
+        event.preventDefault();
+        // Toggle the active class on the dropdown
+        dropdown.classList.toggle('active');
+        console.log('Dropdown active class toggled. Current state:', dropdown.classList.contains('active')); // Log class state
+
+        // Close the dropdown if clicking outside
+        // This listener needs to be added and removed more carefully, or handle clicks on the document
+      });
+
+      // Close the dropdown if clicking outside the dropdown area
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+          console.log('Clicked outside dropdown. Removing active class.'); // Log outside click
+          dropdown.classList.remove('active');
+        }
+      });
+
+      // Stop propagation when clicking inside the dropdown menu to prevent closing
+      if (dropdownMenu) {
+        dropdownMenu.addEventListener('click', function(event) {
+          event.stopPropagation();
+          console.log('Clicked inside dropdown menu.'); // Log inside menu click
+        });
+      }
+    }
+
+  </script>
+</body>
+</html>
